@@ -1,5 +1,7 @@
 #ifndef CONST_POLYNOMIAL_ITERATOR_H
 #define CONST_POLYNOMIAL_ITERATOR_H
+
+template<typename Item_Type>
 class const_piterator{
 	friend class Polynomial<ItemType>;
 	//for read only operations
