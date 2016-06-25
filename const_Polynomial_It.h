@@ -1,7 +1,7 @@
 #ifndef CONST_POLYNOMIAL_ITERATOR_H
 #define CONST_POLYNOMIAL_ITERATOR_H
 
-template<typename Item_Type>
+
 class const_piterator{
 	friend class Polynomial<ItemType>;
 	//for read only operations
@@ -51,7 +51,7 @@ public:
 	const_piterator& operator--(){
 		if (current==parent->leadingTerm)
 			throw std::invalid_argument("Cannot retreat before begin()");
-		if (current--NULL)
+		if (current==NULL)
 			current = parent->lowestTerm;
 		else
 			current = current->prev;
@@ -61,7 +61,7 @@ public:
 	const_piterator operator++(int){
 		const_piterator originalValue = *this;
 		++(*this);
-		return orginalValue;
+		return originalValue;
 	}
 	//operator~return value, then retreat iterator
 	const_piterator operator--(int){

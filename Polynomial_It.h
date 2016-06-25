@@ -1,5 +1,7 @@
 #ifndef POLYNOMIAL_ITERATOR_H
 #define POLYNOMIAL_ITERATOR_H
+
+
 class piterator{
 	//Parent Class Access
 	friend class Polynomial<ItemType>;
