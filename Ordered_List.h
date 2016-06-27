@@ -13,11 +13,24 @@ private:
 public:
 	//Typedefs
 	typedef typename list<Item_Type>::const_iterator const_iterator;
+	typedef typename list<Item_Type>::iterator iterator;
 
 	//Functions
 	/** inserts a new item into the ordered list, maintaining order.
 	@param an_item The item to be inserted
 	*/
+
+	Ordered_List<Item_Type>(const Ordered_List<Item_Type>& other) {
+		a_list = other.a_list;
+	}
+
+	Ordered_List<Item_Type>() {}
+
+	Ordered_List<Item_Type>& operator=(const Ordered_List<Item_Type>& other) {
+		a_list = other.a_list;
+		return *this;
+	}
+
 	void insert(const Item_Type& an_item){
 		typename list<Item_Type>::iterator itr = a_list.begin();
 		
@@ -25,7 +38,6 @@ public:
 			++itr; //itr points to the first item >= an_item
 			//or the end
 		a_list.insert(itr, an_item);
-		
 	}
 
 	/** Remove an item from the ordered list.
@@ -36,13 +48,31 @@ public:
 	}
 
 	/** Return an iterator to the begining */
-	const_iterator begin() const{
+	iterator begin() {
 		return a_list.begin();
 	}
 
 	/** Return an iterator to the end */
-	const_iterator end() const {
+	iterator end() {
 		return a_list.end();
+	}
+
+	/** Return an iterator to the begining */
+	const_iterator begin(int) {
+		return a_list.begin(int);
+	}
+
+	/** Return an iterator to the end */
+	const_iterator end(int) {
+		return a_list.end(int);
+	}
+
+	size_t size() {
+		return a_list.size();
+	}
+
+	void emptyList() {
+		a_list.emptyList();
 	}
 
 };

@@ -265,5 +265,16 @@ public:
 		return end();
 	}
 
+	void emptyList() {
+		List<ItemType>::iterator itr = begin();
+		while (itr != end()) {
+			temp = *itr;
+			itr++;
+			delete temp;
+		}
+		head = NULL;
+		tail = NULL;
+		num_items = 0;
+	}
 };
 

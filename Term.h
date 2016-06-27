@@ -7,11 +7,18 @@ private:
 
 	Term* next;
 	Term* prev;
-
-	Term (const int& givenCoefficient, const int& givenExponent, 
-		Term* prevValue = NULL, Term* nextValue =NULL) :
-				coefficient(givenCoefficient), exponent(givenExponent), prev(prevValue), next(nextValue){}
+	
 public:
+	friend bool operator<(const Term& lhs, const Term& rhs);
+	
+	Term(const int& givenCoefficient, const int& givenExponent) :
+		coefficient(givenCoefficient), exponent(givenExponent) {}
+
+	Term() {
+		coefficient = 0;
+		exponent = 0;
+	}
+
 	int getExponent(){
 		return exponent;
 	}
@@ -20,21 +27,30 @@ public:
 		return coefficient;
 	}
 
-	bool operator>(Term& rhs){
+	const int getExponent (int) const {
+		return exponent;
+	} 
+
+	const int getCoefficient (int) const {
+		return coefficient;
+	}
+
+	bool operator>(Term rhs){
 		return exponent>rhs.getExponent();
 	}
 
-	bool operator<(Term& rhs){
+	bool operator<(Term rhs){
 		return exponent<rhs.getExponent();
 	}
 
-	Term* operator+(Term& rhs){
+	Term* operator+(Term rhs){
 		if (exponent==rhs.getExponent()){
-			Term* sum = new Term((coefficient+rhs.getCoefficient()), rhs.getExponent(), prev, next);
+			Term* sum = new Term((coefficient+rhs.getCoefficient()), rhs.getExponent());
 			return sum;
 		}
 		else 
 			throw std::invalid_argument("not like terms");
 		
 	}
+	
 };

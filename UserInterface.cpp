@@ -30,23 +30,23 @@ bool UserInterface::getMenuInput() {
 			cntrl.setpoly1(poly);
 			return true;
 		case 2:
-			cntrl.printPoly1();
+			//cntrl.printPoly1();
 			return true;
 		case 3:
 			poly = getPolynomial();
 			cntrl.setpoly2(poly);
 			return true;
 		case 4:
-			cntrl.printPoly2();
+			//cntrl.printPoly2();
 			return true;
 		case 5:
-			if (cntrl.addPolys()) {
+			/*if (cntrl.addPolys()) {
 				cntrl.printResult();
 			}
 			else {
 				cout << "Both polynomials must be define." << endl;
 			}
-			return true;
+			return true;*/
 		case 6:
 			cntrl.clearPolys();
 			return true;

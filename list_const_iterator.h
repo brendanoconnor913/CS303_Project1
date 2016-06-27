@@ -8,7 +8,7 @@ class const_iterator {
 private:
 	// Data fields
 	/** A reference to the parent list */
-     const list<Item_Type>* parent;
+    const list<Item_Type>* parent;
 	/** A pointer to the current DNode */
 	typename list<Item_Type>::DNode* current;
 	// Member functions
