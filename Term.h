@@ -40,9 +40,9 @@ public:
 		return exponent < rhs.getExponent();
 	}
 
-	Term* operator+(Term rhs){
+	Term& operator+(Term rhs){
 		if (exponent==rhs.getExponent()){
-			Term* sum = new Term((coefficient+rhs.getCoefficient()), rhs.getExponent());
+			Term sum((coefficient + rhs.getCoefficient()), rhs.getExponent());
 			return sum;
 		}
 		else 
@@ -51,11 +51,12 @@ public:
 	}
 
 	bool operator==(Term& rhs) {
-		return this == &rhs;
+		return exponent == rhs.exponent;
+			
 	}
 
 	bool operator!=(Term& rhs) {
-		return this != &rhs;
+		return exponent != rhs.exponent;
 	}
 	
 };

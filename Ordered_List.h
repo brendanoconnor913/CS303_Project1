@@ -31,13 +31,31 @@ public:
 		return *this;
 	}
 
-	void insert(const Item_Type& an_item){
+	iterator erase(iterator pos) {
+		return a_list.erase(pos);
+	}
+
+	void insert(Item_Type& an_item){
 		typename list<Item_Type>::iterator itr = a_list.begin();
 		
+		if (a_list.empty()) {
+			a_list.insert(itr, an_item);
+			return;
+		}
 		while (itr != a_list.end() && *itr > an_item)
 			++itr; //itr points to the first item >= an_item
 			//or the end
-		a_list.insert(itr, an_item);
+		if (itr == a_list.end()) {
+			a_list.insert(itr, an_item);
+		}
+		else if (*itr == an_item) {
+			an_item = *itr + an_item;
+			a_list.insert(itr, an_item);
+			a_list.erase(itr);
+		}
+		else {
+			a_list.insert(itr, an_item);
+		}
 	}
 
 	/** Remove an item from the ordered list.
@@ -74,8 +92,6 @@ public:
 	void emptyList() {
 		a_list.emptyList();
 	}
-
-	
 
 };
 
