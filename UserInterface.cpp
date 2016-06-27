@@ -11,8 +11,7 @@ void UserInterface::outputMenu() {
 		<< endl << "3. Enter second polynomial"
 		<< endl << "4. View second polynomial"
 		<< endl << "5. Calculate sum of polynomials"
-		<< endl << "6. Clear entered polynomials"
-		<< endl << "7. Exit" << endl;
+		<< endl << "6. Exit" << endl;
 }
 
 // get user input from menu and call appropriate functions
@@ -30,28 +29,25 @@ bool UserInterface::getMenuInput() {
 			cntrl.setpoly1(poly);
 			return true;
 		case 2:
-			//cntrl.printPoly1();
+			cntrl.printPoly(cntrl.poly1);
 			return true;
 		case 3:
 			poly = getPolynomial();
 			cntrl.setpoly2(poly);
 			return true;
 		case 4:
-			//cntrl.printPoly2();
+			cntrl.printPoly(cntrl.poly2);
 			return true;
 		case 5:
-			/*if (cntrl.addPolys()) {
-				cntrl.printResult();
+			if (cntrl.addPoly()) {
+				cntrl.printPoly(cntrl.sum);
 			}
 			else {
-				cout << "Both polynomials must be define." << endl;
+				cout << "Both polynomials must be defined." << endl;
 			}
-			return true;*/
-		case 6:
-			cntrl.clearPolys();
 			return true;
-		case 7:
-			return false;
+		case 6:
+			return false;			
 		default:
 			cout << "Invalid input, try again" << endl;
 			continue;

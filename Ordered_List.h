@@ -34,7 +34,7 @@ public:
 	void insert(const Item_Type& an_item){
 		typename list<Item_Type>::iterator itr = a_list.begin();
 		
-		while (itr != a_list.end() && *itr < an_item)
+		while (itr != a_list.end() && *itr > an_item)
 			++itr; //itr points to the first item >= an_item
 			//or the end
 		a_list.insert(itr, an_item);
@@ -74,6 +74,8 @@ public:
 	void emptyList() {
 		a_list.emptyList();
 	}
+
+	
 
 };
 

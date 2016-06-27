@@ -4,9 +4,6 @@ class Term{
 private:
 	int coefficient;
 	int exponent;
-
-	Term* next;
-	Term* prev;
 	
 public:
 	friend bool operator<(const Term& lhs, const Term& rhs);
@@ -36,11 +33,11 @@ public:
 	}
 
 	bool operator>(Term rhs){
-		return exponent>rhs.getExponent();
+		return exponent > rhs.getExponent();
 	}
 
 	bool operator<(Term rhs){
-		return exponent<rhs.getExponent();
+		return exponent < rhs.getExponent();
 	}
 
 	Term* operator+(Term rhs){
@@ -51,6 +48,14 @@ public:
 		else 
 			throw std::invalid_argument("not like terms");
 		
+	}
+
+	bool operator==(Term& rhs) {
+		return this == &rhs;
+	}
+
+	bool operator!=(Term& rhs) {
+		return this != &rhs;
 	}
 	
 };

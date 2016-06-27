@@ -92,7 +92,9 @@ public:
 		return current != other.current;
 	}
 
-
+	bool isHead() {
+		return current == parent->head;
+	}
 };
 
 #endif

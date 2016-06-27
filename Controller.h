@@ -13,9 +13,10 @@ using namespace std;
 
 class Controller {
 public:
+	friend class UserInterface;
 	Controller() {}
 	// Take user input string and return a polynomial
-	Ordered_List<Term> createPoly(string polystring) {
+	Ordered_List<Term> Controller::createPoly(string polystring) {
 		Ordered_List<Term> returnPoly;
 		//Variables
 		unsigned int it = 0;
@@ -232,20 +233,22 @@ public:
 			}
 
 		}
-		
+		printPoly(returnPoly);
 		return returnPoly;
 	}
 
 	// Add the two polys stored in control variables
 	// returns false if operation fails
-	bool addPoly() {
+
+	bool Controller::addPoly() {
+		sum.emptyList(); // make sure poly is empty before adding anything
 		Ordered_List<Term>::iterator itr1 = poly1.begin();
 		Ordered_List<Term>::iterator itr2 = poly2.begin();
 
 		if (poly1.size() == 0 || poly2.size() == 0) {
 			return false;
 		}
-		
+
 		while ((itr1 != poly1.end()) && (itr2 != poly2.end())) {
 			if (itr1->getExponent() == itr2->getExponent()) {
 				int add = itr1->getCoefficient() + itr2->getCoefficient();
@@ -274,28 +277,41 @@ public:
 		}
 
 		return true;
-
 	}
 
-	// remove all the terms in both stored polys
-	void clearPolys() {
-		poly1.begin();
-		poly2.begin();
-	}
-
-	void printPoly(const Ordered_List<Term>& poly) {
-		
+	void printPoly(Ordered_List<Term>& f) {
+		Ordered_List<Term>::iterator iter = f.begin();
+		cout << endl;
+		while (iter != f.end()) {
+			if ((!iter.isHead()) && (iter->getCoefficient() > 0))
+				cout << "+";
+			if (iter->getExponent() == 0) {
+				cout << iter->getCoefficient();
+				++iter;
+			}
+			else {
+				if (iter->getCoefficient() != 1) {
+					cout << iter->getCoefficient();
+				}
+				cout << "x";
+				if ((iter->getExponent() != 1)) {
+					cout << "^" << iter->getExponent();
+				}
+				++iter;
+			}
+		}
+		cout << endl << endl;
 	}
 
 	// function for UI to call to create first poly
 	// and store it in poly1 variable
 	void setpoly1(string source) {
+		poly1.emptyList(); // empty any previous poly 
 		Ordered_List<Term> temp = createPoly(source);
 		poly1 = temp;
 	}
-	// function for UI to call to create second poly
-	// and store it in poly2 variable
 	void setpoly2(string source) {
+		poly2.emptyList();
 		Ordered_List<Term> temp = createPoly(source);
 		poly2 = temp;
 	}
@@ -305,4 +321,5 @@ private:
 	Ordered_List<Term> poly2;
 	Ordered_List<Term> sum;
 };
+
 #endif

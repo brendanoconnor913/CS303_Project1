@@ -219,7 +219,6 @@ public:
 	}
 
 	bool empty(){
-	
 		return num_items == 0;
 	}
 
@@ -250,7 +249,12 @@ public:
 	}
 
 	void swap(list<Item_Type> other){
+		emptyList();
 
+		iterator itr = other.begin();
+		for (itr; itr != other.end(); itr++) {
+			push_back(*itr);
+		}
 	}
 
 	size_t size() const{
@@ -266,9 +270,9 @@ public:
 	}
 
 	void emptyList() {
-		List<ItemType>::iterator itr = begin();
+		list<Item_Type>::iterator itr = begin();
 		while (itr != end()) {
-			temp = *itr;
+			DNode* temp = itr.current;
 			itr++;
 			delete temp;
 		}
