@@ -20,6 +20,7 @@ public:
 	@param an_item The item to be inserted
 	*/
 
+	// Copy constructor 
 	Ordered_List<Item_Type>(const Ordered_List<Item_Type>& other) {
 		a_list = other.a_list;
 	}
@@ -89,6 +90,7 @@ public:
 		return a_list.size();
 	}
 
+	// removes all nodes in ordered list
 	void emptyList() {
 		a_list.emptyList();
 	}

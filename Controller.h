@@ -39,18 +39,14 @@ public:
 			char c = poly[it + 1];// current place
 			char b = poly[it];// before current place
 
-							  //special case no coefficient = 1 or -1 :::::::::::::::::: perfect
+			//special case no coefficient = 1 or -1 :::::::::::::::::: perfect
 			if ((c == 'x' && b == '+') || (c == 'x' && b == '~')) {
 				coe = '1';
 				coeint = atoi(coe.c_str());
-				cout << "coe = " << coe << endl;
-				cout << "exp = " << exp << endl;
 			}
 			if (c == 'x' && b == '-') {
 				coe = "-1";
 				coeint = atoi(coe.c_str());
-				cout << "coe = " << coe << endl;
-				cout << "exp = " << exp << endl;
 			}
 
 			//Find coefficient with at the start of the string
@@ -60,8 +56,6 @@ public:
 				if ((find < find2 && find < find3 && find != -1) || (find2 == -1 && find3 == -1 && find != -1) || ((find < find2 && find3 == -1 || find < find3 && find2 == -1) && find != -1)) {
 					coe = poly.substr(it + 1, find - it - 1);
 					coeint = atoi(coe.c_str());
-					cout << "coe = " << coe << endl;
-					cout << "exp = " << exp << endl;
 					if (find != -1) {
 						it = find - 2;
 					}
@@ -72,8 +66,6 @@ public:
 					coeint = atoi(coe.c_str());
 					expint = atoi(exp.c_str());
 					termInsert(returnPoly, coeint, expint);
-					cout << "exp = " << exp << endl;
-					cout << "coe = " << coe << endl;
 					if (find2 != -1) {
 						it = find2 - 2;
 					}
@@ -84,8 +76,6 @@ public:
 					coeint = atoi(coe.c_str());
 					expint = atoi(exp.c_str());
 					termInsert(returnPoly, coeint, expint);
-					cout << "exp = " << exp << endl;
-					cout << "coe = " << coe << endl;
 					if (find3 != -1) {
 						it = find3 - 2;
 					}
@@ -96,8 +86,6 @@ public:
 					coeint = atoi(coe.c_str());
 					expint = atoi(exp.c_str());
 					termInsert(returnPoly, coeint, expint);
-					cout << "exp = " << exp << endl;
-					cout << "coe = " << coe << endl;
 				}
 			}
 			// find coefficients in the middle of string
@@ -108,8 +96,6 @@ public:
 					if ((find < find2 && find < find3 && find != -1) || (find2 == -1 && find3 == -1 && find != -1) || ((find < find2 && find3 == -1 || find < find3 && find2 == -1) && find != -1)) {
 						coe = poly.substr(it + 1, find - it - 1);
 						coeint = atoi(coe.c_str());
-						cout << "coe = " << coe << endl;
-						cout << "exp = " << exp << endl;
 						if (find != -1) {
 							it = find - 2;
 						}
@@ -120,8 +106,6 @@ public:
 						coeint = atoi(coe.c_str());
 						expint = atoi(exp.c_str());
 						termInsert(returnPoly, coeint, expint);
-						cout << "exp = " << exp << endl;
-						cout << "coe = " << coe << endl;
 						if (find2 != -1) {
 							it = find2 - 2;
 						}
@@ -132,8 +116,6 @@ public:
 						coeint = atoi(coe.c_str());
 						expint = atoi(exp.c_str());
 						termInsert(returnPoly, coeint, expint);
-						cout << "exp = " << exp << endl;
-						cout << "coe = " << coe << endl;
 						if (find3 != -1) {
 							it = find3 - 2;
 						}
@@ -144,8 +126,6 @@ public:
 						coeint = atoi(coe.c_str());
 						expint = atoi(exp.c_str());
 						termInsert(returnPoly, coeint, expint);
-						cout << "exp = " << exp << endl;
-						cout << "coe = " << coe << endl;
 					}
 				}
 				else if (c == '+') { // if current character is +
@@ -153,8 +133,6 @@ public:
 					if ((find < find2 && find < find3 && find != -1) || (find2 == -1 && find3 == -1 && find != -1) || ((find < find2 && find3 == -1 || find < find3 && find2 == -1) && find != -1)) {
 						coe = poly.substr(it + 2, find - it - 2);
 						coeint = atoi(coe.c_str());
-						cout << "coe = " << coe << endl;
-						cout << "exp = " << exp << endl;
 						if (find != -1) {
 							it = find - 2;
 						}
@@ -165,8 +143,6 @@ public:
 						coeint = atoi(coe.c_str());
 						expint = atoi(exp.c_str());
 						termInsert(returnPoly, coeint, expint);
-						cout << "exp = " << exp << endl;
-						cout << "coe = " << coe << endl;
 						if (find2 != -1) {
 							it = find2 - 2;
 						}
@@ -177,8 +153,6 @@ public:
 						coeint = atoi(coe.c_str());
 						expint = atoi(exp.c_str());
 						termInsert(returnPoly, coeint, expint);
-						cout << "exp = " << exp << endl;
-						cout << "coe = " << coe << endl;
 						if (find3 != -1) {
 							it = find3 - 2;
 						}
@@ -189,8 +163,6 @@ public:
 						coeint = atoi(coe.c_str());
 						expint = atoi(exp.c_str());
 						termInsert(returnPoly, coeint, expint);
-						cout << "exp = " << exp << endl;
-						cout << "coe = " << coe << endl;
 					}
 
 
@@ -203,8 +175,6 @@ public:
 					exp = poly.substr(it + 1, find3 - it - 1);
 					expint = atoi(exp.c_str());
 					termInsert(returnPoly, coeint, expint);
-					cout << "exp = " << exp << endl;
-					cout << "coe = " << coe << endl;
 					if (find3 != -1) {
 						it = find3 - 2;
 					}
@@ -214,8 +184,6 @@ public:
 					exp = poly.substr(it + 1, find2 - it - 1);
 					expint = atoi(exp.c_str());
 					termInsert(returnPoly, coeint, expint);
-					cout << "exp = " << exp << endl;
-					cout << "coe = " << coe << endl;
 					if (find2 != -1) {
 						it = find2 - 2;
 					}
@@ -227,19 +195,14 @@ public:
 				exp = '1';
 				expint = atoi(exp.c_str());
 				termInsert(returnPoly, coeint, expint);
-				cout << "exp = " << exp << endl;
-				cout << "coe = " << coe << endl;
-
 			}
 
 		}
-		printPoly(returnPoly);
 		return returnPoly;
 	}
 
 	// Add the two polys stored in control variables
 	// returns false if operation fails
-
 	bool Controller::addPoly() {
 		sum.emptyList(); // make sure poly is empty before adding anything
 		Ordered_List<Term>::iterator itr1 = poly1.begin();
@@ -250,12 +213,14 @@ public:
 		}
 
 		while ((itr1 != poly1.end()) && (itr2 != poly2.end())) {
+			// If matching exponents add terms and insert into sum
 			if (itr1->getExponent() == itr2->getExponent()) {
 				int add = itr1->getCoefficient() + itr2->getCoefficient();
 				termInsert(sum, add, itr1->getExponent());
 				itr1++;
 				itr2++;
 			}
+			// if not equal insert the bigger term
 			else if (itr1->getExponent() < itr2->getExponent()) {
 				termInsert(sum, itr2->getCoefficient(), itr2->getExponent());
 				itr2++;
@@ -267,6 +232,7 @@ public:
 			}
 
 		}
+		// if end of one of the polys reach input the rest of the terms from other poly
 		while (itr1 != poly1.end()) {
 			termInsert(sum, itr1->getCoefficient(), itr1->getExponent());
 			itr1++;
@@ -279,16 +245,20 @@ public:
 		return true;
 	}
 
+	// output poly to standard output
 	void printPoly(Ordered_List<Term>& f) {
 		Ordered_List<Term>::iterator iter = f.begin();
 		cout << endl;
+		if (f.size() == 0) { // if no terms output 0
+			cout << "0";
+		}
 		while (iter != f.end()) {
 			if ((!iter.isHead()) && (iter->getCoefficient() > 0))
 				cout << "+";
 			if (iter->getCoefficient() == 0) {
-				iter = f.erase(iter);
+				iter = f.erase(iter); // erase any zero coeff terms
 			}
-			if (iter->getExponent() == 0) {
+			if (iter->getExponent() == 0) { // constants
 				cout << iter->getCoefficient();
 				++iter;
 			}
@@ -296,7 +266,7 @@ public:
 				if (iter->getCoefficient() != 1 && iter->getCoefficient() != -1) {
 					cout << iter->getCoefficient();
 				}
-				if (iter->getCoefficient() != -1) {
+				if (iter->getCoefficient() == -1) {
 					cout << "-";
 				}
 				cout << "x";
@@ -322,6 +292,7 @@ public:
 		poly2 = temp;
 	}
 
+	// wrapper function so no terms with a 0 coeff are inserted into a list
 	void termInsert(Ordered_List<Term>& poly, int coeff, int exp) {
 		if (coeff == 0) {
 			return;

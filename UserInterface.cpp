@@ -24,7 +24,7 @@ bool UserInterface::getMenuInput() {
 		cout << "What will be your choice: ";
 		cin >> choice;
 		switch (stoi(choice)) {
-		case 1:
+		case 1: // get poly string from user and pass to controller for setup
 			poly = getPolynomial();
 			cntrl.setpoly1(poly);
 			return true;
@@ -42,7 +42,7 @@ bool UserInterface::getMenuInput() {
 			if (cntrl.addPoly()) {
 				cntrl.printPoly(cntrl.sum);
 			}
-			else {
+			else { // don't print if add failed
 				cout << "Both polynomials must be defined." << endl;
 			}
 			return true;

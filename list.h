@@ -269,6 +269,7 @@ public:
 		return end();
 	}
 
+	// removes all nodes in the list
 	void emptyList() {
 		list<Item_Type>::iterator itr = begin();
 		while (itr != end()) {

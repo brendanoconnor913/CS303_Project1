@@ -92,6 +92,7 @@ public:
 		return current != other.current;
 	}
 
+	// returns true if pointing to head
 	bool isHead() {
 		return current == parent->head;
 	}

@@ -6,8 +6,6 @@ private:
 	int exponent;
 	
 public:
-	friend bool operator<(const Term& lhs, const Term& rhs);
-	
 	Term(const int& givenCoefficient, const int& givenExponent) :
 		coefficient(givenCoefficient), exponent(givenExponent) {}
 
@@ -40,6 +38,7 @@ public:
 		return exponent < rhs.getExponent();
 	}
 
+	// adds coefficients of two terms with same exponent
 	Term& operator+(Term rhs){
 		if (exponent==rhs.getExponent()){
 			Term sum((coefficient + rhs.getCoefficient()), rhs.getExponent());
